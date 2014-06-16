@@ -19,28 +19,8 @@
 var app = {
     // Application Constructor
     initialize: function() {
-
- // Note this is new code
- navigator.mozSetMessageHandler('activity', NfcActivityHandler);
-
- function NfcActivityHandler(activity) {
-   var activityName = activity.source.name;
-   var data = activity.source.data;
- 
-   switch (activityName) {
-     case 'nfc-ndef-discovered':
-       console.log('nfc ndef message records(s): ' + JSON.stringify(data.records));
-       console.log('Session Token: ' + JSON.stringify(data.sessionToken));
-       console.log('Technology Detected: ' + JSON.stringify(data.tech));
-       handleNdefDiscovered(data);
-       break;
-   }
- }
- // Note end.
-
-
-
-        this.bindEvents();
+      console.log("initializing");
+      this.bindEvents();
     },
     // Bind Event Listeners
     //
@@ -68,3 +48,27 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+
+console.log("test");
+
+      // Note this is new code
+      navigator.mozSetMessageHandler('activity', NfcActivityHandler);
+
+      function NfcActivityHandler(activity) {
+        var activityName = activity.source.name;
+        var data = activity.source.data;
+ 
+        switch (activityName) {
+          case 'nfc-ndef-discovered':
+          console.log('nfc ndef message records(s): ' + JSON.stringify(data.records));
+          console.log('Session Token: ' + JSON.stringify(data.sessionToken));
+          console.log('Technology Detected: ' + JSON.stringify(data.tech));
+          handleNdefDiscovered(data);
+          break;
+        }
+      }
+      // Note end.
+
+
+app.initialize();
