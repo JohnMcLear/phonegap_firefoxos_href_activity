@@ -19,8 +19,10 @@
   "activities": {
     "nfc-ndef-discovered": {
       "filters": {
-       "type": "uri",
-       "uri": { "required":true, "regexp":"/^https?:.{1,16384}$/i" }
+        "type": "url",
+        "url":{
+          "required":true, "pattern":"https?:.{1,16384}", "patternFlags":"i"
+        }
       },
       "href":"/index.html"
     }
