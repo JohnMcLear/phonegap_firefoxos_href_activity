@@ -1,0 +1,28 @@
+{
+  "name": "TEST NFC",
+  "description": "Blabla",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "Your name or organization",
+    "url": "http://your-homepage-here.org"
+  },
+  "default_locale": "en",
+  "permissions": {
+    "nfc": { 
+      "access": "readwrite" 
+    }
+  },
+  "type":"certified",
+  "activities": {
+    "nfc-ndef-discovered": {
+      "filters": {
+       "type": "uri",
+       "uri": { "required":true, "regexp":"/^https?:.{1,16384}$/i" }
+      },
+      "href":"/index.html"
+    }
+  }
+}
